@@ -6,6 +6,7 @@ class Post < ActiveRecord::Base
   validate :is_clickbait?
 
   def is_clickbait?
+    binding.pry
     bait = /Top [0-9]/
     if !title.include?("Won't Believe") || !title.include?("Secret") || !title.match(bait) || !title.include?("Guess")
       errors.add(:title, "must be clickbait")
