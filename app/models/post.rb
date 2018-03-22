@@ -10,4 +10,5 @@ class Post < ActiveRecord::Base
     if !self.title.include?("Won't Believe") || !self.title.include?("Secret") || !self.title.match(bait) || !self.title.include?("Guess")
       errors.add(:title, "must be clickbait")
     end
+  end
 end
