@@ -7,9 +7,10 @@ class Post < ActiveRecord::Base
 
   def is_clickbait?
     bait = /Top [0-9]/
-    binding.pry
-    if !self.title.include?("Won't Believe") || !self.title.include?("Secret") || !self.title.match(bait) || !self.title.include?("Guess")
-      errors.add(:title, "must be clickbait")
+    if self.title
+      if !self.title.include?("Won't Believe") || !self.title.include?("Secret") || !self.title.match(bait) || !self.title.include?("Guess")
+        errors.add(:title, "must be clickbait")
+      end
     end
   end
 end
